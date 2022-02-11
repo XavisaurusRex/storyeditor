@@ -1,6 +1,5 @@
 package com.example.draganddropemojis
 
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -47,8 +46,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnAddIcon.setOnClickListener {
-            val sticker =  BitmapFactory.decodeResource(getResources(), resources.random())
-            dragCustomView.addSticker(sticker)
+            dragCustomView.addSticker(resources.random())
         }
 
         btnAddText.setOnClickListener {

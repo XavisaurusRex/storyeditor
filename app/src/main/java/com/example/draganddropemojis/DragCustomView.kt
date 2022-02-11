@@ -2,6 +2,7 @@ package com.example.draganddropemojis
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
@@ -20,6 +21,9 @@ import android.view.MotionEvent.ACTION_MOVE
 import android.view.MotionEvent.ACTION_POINTER_UP
 import android.view.MotionEvent.ACTION_UP
 import android.view.View
+import androidx.annotation.DrawableRes
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.values
 import java.util.Stack
 import kotlin.math.atan2
@@ -58,13 +62,13 @@ class DragCustomView @JvmOverloads constructor(
 
             var width: Float = bitmap.width.toFloat()
             var height: Float = bitmap.height.toFloat()
-            val scaleTo = 0.3f
+            val scaleTo = 0.333f
 
             init {
                 matrix.postScale(scaleTo, scaleTo)
                 matrix.postTranslate(
-                    x - ((width * 0.3f) / 2f),
-                    y - ((height * 0.3f) / 2f)
+                    x - ((width * scaleTo) / 2f),
+                    y - ((height * scaleTo) / 2f)
                 )
             }
 
@@ -400,13 +404,21 @@ class DragCustomView @JvmOverloads constructor(
         }
     }
 
-    fun addSticker(decodeResource: Bitmap) {
+    val bitmapRaws: HashMap<Int,Bitmap> = hashMapOf()
+    fun addSticker(@DrawableRes resourceId: Int ) {
+        Log.d("XAVIER", "NUMBER OF DIFERENT BITMAPS ${bitmapRaws.size}")
         Log.d("XAVIER", "NUMBER OF STICKERS ${data.size}")
+
         data.add(
             Item.Sticker(
                 x = width / 2f,
                 y = height / 2f,
-                bitmap = decodeResource
+                bitmapRaws[resourceId] ?: run {
+                    val minLenght = minOf(width, height)
+                    getDrawable(context, resourceId)?.toBitmap(minLenght, minLenght, Bitmap.Config.ARGB_8888)!!.also {
+                        bitmapRaws[resourceId] = it
+                    }
+                }
             )
         )
         invalidate()
