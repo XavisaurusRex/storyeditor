@@ -5,8 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.226" />
         <entry key="app/src/main/res/drawable/ic_girl_with_idea.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2105" />
         <entry key="app/src/main/res/drawable/ic_nicubunu_comic_characters_photographer.xml" value="0.2105" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/view_personalization_canvas.xml" value="0.28134556574923547" />
       </map>
     </option>
   </component>

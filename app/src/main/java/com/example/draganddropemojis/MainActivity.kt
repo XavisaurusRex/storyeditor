@@ -1,28 +1,16 @@
 package com.example.draganddropemojis
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.draganddropemojis.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-    val dragCustomView by lazy {
-        findViewById<DragCustomView>(R.id.dragCustomView)
-    }
-    val btnAddIcon by lazy {
-        findViewById<Button>(R.id.btnAddIcon)
-    }
-    val btnAddText by lazy {
-        findViewById<Button>(R.id.btnAddText)
-    }
 
-    val btnClear by lazy {
-        findViewById<Button>(R.id.btnClear)
-    }
-
-    val btnBack by lazy {
-        findViewById<Button>(R.id.btnBack)
+    val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
     }
 
     val resources = listOf(
@@ -42,27 +30,18 @@ class MainActivity : AppCompatActivity() {
         "-♥️-"
     )
 
+    @SuppressLint("ClickableViewAccessibility", "UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        btnAddIcon.setOnClickListener {
-            dragCustomView.addSticker(resources.random())
-        }
+        setContentView(binding.root)
 
-        btnAddText.setOnClickListener {
-            dragCustomView.addText(
-                textos.random()
+        binding.btnAddIcon.setOnClickListener {
+            binding.personalizationCanvas.addSticker(
+                resources.random()
             )
         }
-
-        btnClear.setOnClickListener {
-            dragCustomView.clearAll()
+        binding.btnClear.setOnClickListener {
+            binding.personalizationCanvas.clearAll()
         }
-
-        btnBack.setOnClickListener {
-            dragCustomView.goBack()
-        }
-//        dragCustomView.addText("HelloWorld")
-
     }
 }
