@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.draganddropemojis.dragItemsComponent.PersonalizationCanvas
-        android:id="@+id/personalizationCanvas"
+    <com.example.draganddropemojis.dragItemsComponent.PersonalizationComponent
+        android:id="@+id/personalization_component"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="20dp"
@@ -44,15 +44,15 @@
         android:layout_margin="10dp"
         android:text="CLEAR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnBack"
+        app:layout_constraintEnd_toStartOf="@id/btnDownload"
         app:layout_constraintStart_toEndOf="@id/btnAddText" />
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btnDownload"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="BACK"
+        android:text="Download"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnClear" />

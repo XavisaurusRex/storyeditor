@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.draganddropemojis.dragItemsComponent.TransformationCanvas
+    <com.example.draganddropemojis.dragItemsComponent.TransformItemCanvas
         android:id="@+id/transformationCanvas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:translationZ="1dp"/>
 
-    <com.example.draganddropemojis.dragItemsComponent.BackgroundCanvas
+    <com.example.draganddropemojis.dragItemsComponent.VisualizationCanvas
         android:id="@+id/backgroundCanvas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
